@@ -1,0 +1,67 @@
+{
+  "name": "@hungry/bulma-element",
+  "sideEffects": false,
+  "version": "0.0.1",
+  "type": "component",
+  "main": "src/index.ts",
+  "homepage": "https://github.com/damianbaar/catch-the-sun/tree/master/packages/component/bulma-element",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damianbaar/catch-the-sun/tree/master/packages/component/bulma-element"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "safari >= 7"
+  ],
+  "description": "",
+  "author": {
+    "name": "Damian Baar"
+  },
+  "dependencies": {
+    "@hungry/bulma-theme": "~0.0.1",
+    "@hungry/sassy-react-component": "~0.0.1"
+  },
+  "peerDependencies": {
+    "react": "next",
+    "react-dom": "next"
+  },
+  "node": {
+    "engine": ">= 8.9"
+  },
+  "babel": {
+    "presets": [
+      "@core/babel-preset-web"
+    ]
+  },
+  "stylelint": {
+    "extends": "@core/stylelint-config"
+  },
+  "scripts": {
+    "test": "spell run test",
+    "test:watch": "spell run test --watch",
+    "test:types": "dtslint component-types-tests --onlyTestTsNext",
+    "build:showcase": "cosmos-export",
+    "start:showcase": "spell run showcase",
+    "test:snapshots": "start-server-and-test 'start:showcase' http-get://localhost:8989 test:jest",
+    "lint:css": "stylelint './src/**/*.js'"
+  },
+  "devDependencies": {
+    "@hungry/bulma-styled-theme": "~0.0.1",
+    "@core/babel-preset-web": "~0.0.1",
+    "@core/webpack-config": "~0.0.1",
+    "@types/classnames": "^2.2.6",
+    "@types/react": "^16.6.3",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-test-renderer": "^16.0.3",
+    "@types/recompose": "^0.26.4",
+    "@types/styled-components": "^4.1.1",
+    "@types/styled-system": "^3.0.9",
+    "dtslint": "^0.3.0",
+    "prop-types": "^15.6.2",
+    "react-cosmos": "^4.6.4",
+    "react-cosmos-context-proxy": "^4.6.1",
+    "react-test-renderer": "^16.4.2",
+    "react-testing-library": "^5.2.3"
+  },
+  "private": true
+}

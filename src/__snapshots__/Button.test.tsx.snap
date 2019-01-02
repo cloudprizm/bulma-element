@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render basic button 1`] = `
+.c0 {
+  padding: 10px;
+  font-size: 10px;
+}
+
+<button
+  className="asButton-css isActive-css isBlack-css c0"
+  disabled={true}
+  fontSize={10}
+>
+  Dupa szatana!
+</button>
+`;
+
+exports[`render submit button 1`] = `
+.c0 {
+  padding: 10px;
+}
+
+<button
+  className="asButton-css isActive-css c0"
+  type="submit"
+>
+  Dupa szatana!
+</button>
+`;
