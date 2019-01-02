@@ -35,9 +35,6 @@ export default [
               <CheckboxWithLabel onChange={() => { }}>Remember me</CheckboxWithLabel>
             </Control>
           </Field>
-          <Field>
-            <UploadButton isBoxed>upoad button</UploadButton>
-          </Field>
         </Form>
       )
     }

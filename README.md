@@ -1,22 +1,32 @@
 `@hungry/bulma-element`
+
 Bulma elements in typescript with `styled-components` and `styled-system` features.
 
+### How to run
+`yarn start:showcase`
+
+### Examples
+- check `*.fixture.ts` files
+
+### How to enable them in you project
+- check `webpack.showcase.ts` file to get an insight what plugins are necessary to run it correctly.
+
 ### Why
-There is a lot of cool sass frameworks and adopting them from stratch seems to be always cumbersone. 
-There is a lots of tutorial how to switch from sass to jscss, but all assume direct port which is bug prone.
-Missing was the bridge between these two worlds.
+Missing bridge between existing sass frameworks and js in css.
+There are some implementation of `bulma` for ts, but typings seems to be very low resolution and most of them do not assume that every selector could be changed by bulma modifiers.
 
 ### Goals
-no need to define css at all
-provide thin layer of abstraction for css with preserving cascading behaviour (all modifiers can be applied to any component) - two goals, in bigger teams where separate team is involved and there is already defined framework css
+provide thin layer of abstraction for css with preserving cascading behaviour - all modifiers can be applied to any component
 
 ### Example component
 #### API
 ```ts
   <Button 
+    // bulma modifiers
     isActive 
     isDanger 
     hasTextWarning 
+    // styled components
     as="section"
     width={1}
     p={2}
@@ -28,7 +38,7 @@ provide thin layer of abstraction for css with preserving cascading behaviour (a
 * there is no manual work involved in class names and everything is auto generated based upon sass
 
 ### Where is the rest of bulma components
-This package is final, this is all elements were exported, rest of them would be provided in separate package.
+This package is final, this is, all elements were exported, rest of bulma components would be provided in separate package.
 
 ### Contribution
 TODO
