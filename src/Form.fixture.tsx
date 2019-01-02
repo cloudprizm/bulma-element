@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Theme } from '@hungry/bulma-styled-theme'
 import { Control, Field, Form, Help, Input, Label } from './Form'
-import { CheckboxWithLabel, RadioWithLabel } from './Form.compound'
+import { CheckboxWithLabel, RadioWithLabel, UploadButton } from './Form.compound'
 
 export default [
   {
@@ -10,31 +10,33 @@ export default [
     namespace: 'input',
     name: 'default',
     props: {
-      /* Cosmos is shouting about fragment shorthand */
       children: (
         <Form p={2}>
           <Field>
-            <Label>Kiedy zielone swiatlo i mozna jechac, np. walidacja</Label>
+            <Label>label with success</Label>
             <Input isSuccess />
           </Field>
           <Field>
-            <Label isSmall>Kiedy error nastanie</Label>
+            <Label isSmall>small label with input and error message</Label>
             <Input isDanger />
-            <Help isDanger>Jakis tam error</Help>
+            <Help isDanger>error message</Help>
           </Field>
           <Field>
-            <Label isLarge>Kiedy jest pusty z podpowiedzia</Label>
-            <Input isEmpty placeholder="test" />
-            <Help>Jakis tam super pomocny tekst</Help>
-            <CheckboxWithLabel isLarge checked onChange={() => { }}>dupa szatana</CheckboxWithLabel>
-            <RadioWithLabel onChange={() => { }}>dupa szatana</RadioWithLabel>
+            <Label isLarge>large field with help message</Label>
+            <Input isEmpty placeholder="some placeholder" />
+            <Help>Some help message</Help>
+            <CheckboxWithLabel isLarge checked onChange={() => { }}>checkbox with label</CheckboxWithLabel>
+            <RadioWithLabel onChange={() => { }}>radio with label</RadioWithLabel>
           </Field>
           <Field>
-            <Label>Kiedy sie cos bedzie ladowac, lub na cos czekac</Label>
+            <Label>field with loading and checkbox</Label>
             <Control isLoading>
               <Input isSuccess />
               <CheckboxWithLabel onChange={() => { }}>Remember me</CheckboxWithLabel>
             </Control>
+          </Field>
+          <Field>
+            <UploadButton isBoxed>upoad button</UploadButton>
           </Field>
         </Form>
       )

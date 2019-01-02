@@ -28,11 +28,6 @@
   "node": {
     "engine": ">= 8.9"
   },
-  "babel": {
-    "presets": [
-      "@core/babel-preset-web"
-    ]
-  },
   "stylelint": {
     "extends": "@core/stylelint-config"
   },
@@ -41,7 +36,7 @@
     "test:watch": "spell run test --watch",
     "test:types": "dtslint component-types-tests --onlyTestTsNext",
     "build:showcase": "cosmos-export",
-    "start:showcase": "spell run showcase",
+    "start:showcase": "cosmos --config cosmos.config.js",
     "test:snapshots": "start-server-and-test 'start:showcase' http-get://localhost:8989 test:jest",
     "lint:css": "stylelint './src/**/*.js'"
   },

@@ -1,5 +1,4 @@
 import React, { Props, ComponentType, MouseEventHandler } from 'react'
-import { AnyStyledComponent } from 'styled-components'
 import { ComponentWithVariants, Primitives } from '@hungry/sassy-react-component'
 
 import { Checkbox, Radio, File, Control, Input, formBulmaVariants, FormVariants } from './Form'
@@ -10,20 +9,22 @@ export const LoadableInput =
       <Input {...rest} />
     </Control>
 
-interface UploadButtonProps {
+type WithChildren = Pick<Props<any>, 'children'>
+
+type UploadButtonProps = {
   icon: ComponentType
   isBoxed: boolean
   text: string
-}
+} & WithChildren
 
 export const UploadButton =
-  ({ icon, isBoxed, text, ...inputProps }: UploadButtonProps) =>
-    <File.Block isBoxed={isBoxed} isPrimary>
+  ({ icon, isBoxed, children, text, ...inputProps }: Partial<UploadButtonProps>) =>
+    <File.Block isBoxed={isBoxed}>
       <File.Label>
         <File.Input {...inputProps} />
         <File.CTA>
           <File.Icon>{icon}</File.Icon>
-          <File.InlineLabel>{text}</File.InlineLabel>
+          <File.InlineLabel>{children}</File.InlineLabel>
         </File.CTA>
       </File.Label>
     </File.Block>
@@ -33,10 +34,10 @@ const LabelForRadio = formBulmaVariants('radioLabel')(Primitives.label)
 
 type InputProps = {
   name?: string
-  onChange?: MouseEventHandler<AnyStyledComponent>
+  onChange?: MouseEventHandler<any>
   value?: any
   checked?: boolean
-} & Props<any>
+} & WithChildren
 
 type WithLabel = {
   render?: (component: ComponentWithVariants, props: InputProps) => ComponentType
@@ -44,7 +45,7 @@ type WithLabel = {
 
 const makeLabeledComponentWithRender =
   ([WrappedInput, Label]: [ComponentWithVariants, ComponentWithVariants]) =>
-    ({ children, render, name, onChange, value, checked, ...rest }: WithLabel) =>
+    ({ children, render, name, onChange, value, checked, ...rest }: Partial<WithLabel>) =>
       <Label {...rest}>{
         render
           ? render(WrappedInput, { onChange, value, checked, children })
