@@ -4,16 +4,22 @@
   "version": "0.0.1",
   "type": "component",
   "main": "src/index.ts",
-  "homepage": "https://github.com/damianbaar/catch-the-sun/tree/master/packages/component/bulma-element",
+  "homepage": "https://github.com/hungry-consulting/bulma-element",
   "repository": {
     "type": "git",
-    "url": "https://github.com/damianbaar/catch-the-sun/tree/master/packages/component/bulma-element"
+    "url": "https://github.com/hungry-consulting/bulma-element"
   },
   "browserslist": [
     "last 2 versions",
     "safari >= 7"
   ],
-  "description": "",
+  "keywords": [
+    "styled-components",
+    "bulma",
+    "typescript",
+    "styled-system"
+  ],
+  "description": "Bulma elements in typescript",
   "author": {
     "name": "Damian Baar"
   },
@@ -22,41 +28,43 @@
     "@hungry/sassy-react-component": "~0.0.1"
   },
   "peerDependencies": {
-    "react": "next",
-    "react-dom": "next"
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "node": {
     "engine": ">= 8.9"
   },
   "stylelint": {
-    "extends": "@core/stylelint-config"
+    "processors": [
+      "stylelint-processor-styled-components"
+    ],
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-config-styled-components"
+    ]
   },
   "scripts": {
     "test": "spell run test",
     "test:watch": "spell run test --watch",
-    "test:types": "dtslint component-types-tests --onlyTestTsNext",
+    "test:types": "dtslint component-types-tests",
     "build:showcase": "cosmos-export",
     "start:showcase": "cosmos --config cosmos.config.js",
     "test:snapshots": "start-server-and-test 'start:showcase' http-get://localhost:8989 test:jest",
-    "lint:css": "stylelint './src/**/*.js'"
+    "lint:css": "stylelint src/*.tsx"
   },
   "devDependencies": {
     "@hungry/bulma-styled-theme": "~0.0.1",
-    "@core/babel-preset-web": "~0.0.1",
-    "@core/webpack-config": "~0.0.1",
-    "@types/classnames": "^2.2.6",
     "@types/react": "^16.6.3",
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
-    "@types/recompose": "^0.26.4",
     "@types/styled-components": "^4.1.1",
     "@types/styled-system": "^3.0.9",
-    "dtslint": "^0.3.0",
+    "dtslint": "^0.4.2",
+    "stylelint-processor-styled-components": "^1.5.1",
     "prop-types": "^15.6.2",
     "react-cosmos": "^4.6.4",
-    "react-cosmos-context-proxy": "^4.6.1",
     "react-test-renderer": "^16.4.2",
     "react-testing-library": "^5.2.3"
   },
-  "private": true
+  "private": false
 }
