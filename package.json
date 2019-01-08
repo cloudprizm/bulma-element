@@ -51,9 +51,17 @@
     "build:showcase": "cosmos-export",
     "start:showcase": "cosmos --config cosmos.config.js",
     "test:snapshots": "start-server-and-test 'start:showcase' http-get://localhost:8989 test:jest",
-    "lint:css": "stylelint src/*.tsx"
+    "lint:css": "stylelint src/*.tsx",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o docs",
+    "github:gh-pages": "storybook-to-ghpages --dry-run --out docs"
   },
   "devDependencies": {
+    "@storybook/cli": "^4.1.4",
+    "@storybook/react": "^4.1.4",
+    "@storybook/addon-actions": "^4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/react": "^16.6.3",
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
@@ -64,7 +72,12 @@
     "prop-types": "^15.6.2",
     "react-cosmos": "^4.6.4",
     "react-test-renderer": "^16.4.2",
-    "react-testing-library": "^5.2.3"
+    "react-testing-library": "^5.2.3",
+    "@storybook/addon-actions": "^4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/addons": "^4.1.4",
+    "@babel/core": "^7.2.2",
+    "babel-loader": "^8.0.5"
   },
   "private": false
 }
