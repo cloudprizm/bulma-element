@@ -18,8 +18,12 @@ export const makeButton = withEmbeddedVariants('button')
 export const Button = makeButton(
   toStyledGenericFromStringOrJSX('button'))
 
+Button.displayName = 'Button'
+
 export const SubmitButton = makeButton(
   toStyledGenericFromStyledFunction(
     styled
       .button
       .attrs({ type: 'submit' })))
+
+SubmitButton.displayName = 'SubmitButton'
