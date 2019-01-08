@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@hungry/bulma-theme": "~0.0.1",
+    "@hungry/bulma-styled-theme": "~0.0.1",
     "@hungry/sassy-react-component": "~0.0.1"
   },
   "peerDependencies": {
@@ -53,7 +54,6 @@
     "lint:css": "stylelint src/*.tsx"
   },
   "devDependencies": {
-    "@hungry/bulma-styled-theme": "~0.0.1",
     "@types/react": "^16.6.3",
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
