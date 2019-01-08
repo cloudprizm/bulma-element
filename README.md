@@ -4,9 +4,9 @@ Bulma elements in typescript with [`styled-components`](https://github.com/style
 
 ### Why
 * missing bridge between existing sass frameworks and js in css - creating any other special components based upon already defined rules
-* `Bulma` provides great baseline for any component, but there is sometimes a need to override it, so this is why `style-components` and `styled-system` is used.
-* there are some implementation of `bulma` for ts, however typings for the time being seems to have very low resolution and most of them do not assume that every selector could be changed by bulma modifiers 
-* provide thin layer of abstraction for css with preserving nature of CSS - all modifiers can be applied to any component
+* `Bulma` provides great baseline for any component, but sometimes there is a need to override it within specific context, so this is why `style-components` and `styled-system` is used - avoid any css but give an ability to alter some experience
+* there are some implementation of `bulma` for typescript, however typings for the time being seems to have very low resolution and most of them do not assume that every selector could be changed by bulma modifiers 
+* provide thin layer of abstraction for css with preserving nature of CSS - all modifiers can be applied to any component - it is explicitly defined no auto magic assumption
 
 ### Demo
 `yarn start:showcase`
@@ -32,12 +32,13 @@ If you encounter any issues, you can check `webpack.showcase.ts` file to get ful
 ##### Primitives
 ```ts
   <Button 
-    // bulma modifiers
+    // bulma modifiers provided by sassy-react-component
     isActive 
     isDanger 
     hasTextWarning 
-    // styled components
+    // styled components feature
     as="section"
+    // styled-system features
     width={1}
     p={2}
   />
