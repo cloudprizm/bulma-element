@@ -8,8 +8,6 @@ import { combineCSSWithModifiers, WithModifiers } from './modifiers'
 
 import CSS, { BEM } from './Notification.sass'
 
-// INFO: delete disappears when webpack is loading sass - something to investigate
-
 const asBulmaVariant =
   styledWithVariants<WithModifiers<BEM & { delete: boolean }>>(
     combineCSSWithModifiers(CSS))
