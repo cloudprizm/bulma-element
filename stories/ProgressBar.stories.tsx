@@ -1,6 +1,6 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
-import { ProgressBar } from './ProgressBar'
+import { ProgressBar } from '../src/ProgressBar'
 
 export default [
   {

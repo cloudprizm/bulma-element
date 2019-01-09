@@ -1,6 +1,6 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
-import { Image } from './Image'
+import { Image } from '../src/Image'
 
 export default [
   {

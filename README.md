@@ -1,9 +1,9 @@
 `@hungry/bulma-element`
 ====
 
-Bulma elements in typescript with [`styled-components`](https://github.com/styled-components/styled-components) and [`styled-system`](https://github.com/jxnblk/styled-system) features.
+[Bulma elements](https://bulma.io/documentation/elements/) in typescript with [`styled-components`](https://github.com/styled-components/styled-components) and [`styled-system`](https://github.com/jxnblk/styled-system) features.
 
-[Showcase](https://hungry-consulting.github.io/bulma-element/).
+[Storybook](https://hungry-consulting.github.io/bulma-element/)
 
 ### Why
 * missing bridge between existing sass frameworks and js in css - creating any other special components based upon already defined rules

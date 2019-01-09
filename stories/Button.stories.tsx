@@ -1,6 +1,6 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
-import { Button } from './Button'
+import { Button } from '../src/Button'
 
 // const Tog = withToggle(({ open, toggleOpen, values, ...rest }) =>
 //   <Button

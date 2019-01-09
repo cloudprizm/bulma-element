@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 import { Theme } from '@hungry/bulma-styled-theme'
-import { Control, Field, Form, Help, Input, Label } from './Form'
-import { CheckboxWithLabel, RadioWithLabel, UploadButton } from './Form.compound'
+import { Control, Field, Form, Help, Input, Label } from '../src/Form'
+import { CheckboxWithLabel, RadioWithLabel, UploadButton } from '../src/Form.compound'
 
 export default [
   {

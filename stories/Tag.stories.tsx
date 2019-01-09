@@ -1,8 +1,8 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
-import { Control, Field } from './Form'
-import { Tag, Tags } from './Tag'
-import { DeletableTag } from './Tag.compound'
+import { Control, Field } from '../src/Form'
+import { Tag, Tags } from '../src/Tag'
+import { DeletableTag } from '../src/Tag.compound'
 
 export default [
   {
@@ -41,10 +41,10 @@ export default [
             <DeletableTag isBlack>is black</DeletableTag>
           </Control>
           <Control>
-            <DeletableTag isDanger>is black</DeletableTag>
+            <DeletableTag isDanger>is danger</DeletableTag>
           </Control>
           <Control>
-            <DeletableTag isWarning>is black</DeletableTag>
+            <DeletableTag isWarning>is warning</DeletableTag>
           </Control>
         </Field>
       </>
