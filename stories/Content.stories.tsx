@@ -1,14 +1,15 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
 import { Content } from '../src/Content'
+import { makeStory } from './bridge'
 
-export default [
+const storyDescriptors = [
   {
     component: Theme.Provider,
     namespace: 'Content',
     name: 'displaying content',
     props: {
-      children: (<>
+      children: () => (<>
         <Content>
           <h1>Hello World</h1>
           <p>Lorem ipsum<sup><a>[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
@@ -51,3 +52,5 @@ export default [
     }
   },
 ]
+
+storyDescriptors.map(makeStory(module))

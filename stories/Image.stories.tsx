@@ -1,13 +1,15 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
 import { Image } from '../src/Image'
+import { makeStory } from './bridge'
 
-export default [
+const stories = [
   {
     component: Theme.Provider,
-    namespace: 'content',
+    namespace: 'Image',
+    name: 'responsive image',
     props: {
-      children: (<>
+      children: () => (<>
         <Image
           is128X128
           src="https://bulma.io/images/placeholders/128x128.png"
@@ -16,4 +18,4 @@ export default [
       )
     }
   },
-]
+].map(makeStory(module))

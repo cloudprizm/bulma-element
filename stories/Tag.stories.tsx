@@ -3,14 +3,15 @@ import * as React from 'react'
 import { Control, Field } from '../src/Form'
 import { Tag, Tags } from '../src/Tag'
 import { DeletableTag } from '../src/Tag.compound'
+import { makeStory } from './bridge'
 
-export default [
+const stories = [
   {
     component: Theme.Provider,
     namespace: 'Tag',
     name: 'colors & simple',
     props: {
-      children: (<>
+      children: () => (<>
         <Tags>
           <Tag isBlack>isBlack</Tag>
           <Tag isDark>isDark</Tag>
@@ -32,7 +33,7 @@ export default [
     namespace: 'Tag',
     name: 'complex',
     props: {
-      children: (<>
+      children: () => (<>
         <Field isGrouped isGroupedMultiline>
           <Control>
             <DeletableTag isLink>flat</DeletableTag>
@@ -51,4 +52,4 @@ export default [
       )
     }
   },
-]
+].map(makeStory(module))

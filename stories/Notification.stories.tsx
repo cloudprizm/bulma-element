@@ -1,22 +1,23 @@
 import { Theme } from '@hungry/bulma-styled-theme'
 import * as React from 'react'
 import { Notification } from '../src/Notification'
+import { makeStory } from './bridge'
 
-export default [
+const stories = [
   {
     component: Theme.Provider,
     namespace: 'Notification',
     name: 'basic',
     props: {
-      children: (<>
+      children: () => (<>
         <Notification.Block isPrimary>
           <Notification.DeleteButton />
           Primar lorem ipsum dolor sit amet, consectetur
             adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-  consectetur adipiscing elit
+consectetur adipiscing elit
           </Notification.Block>
       </>
       )
     }
   },
-]
+].map(makeStory(module))

@@ -3,14 +3,15 @@ import * as React from 'react'
 import { Theme } from '@hungry/bulma-styled-theme'
 import { Control, Field, Form, Help, Input, Label } from '../src/Form'
 import { CheckboxWithLabel, RadioWithLabel, UploadButton } from '../src/Form.compound'
+import { makeStory } from './bridge'
 
-export default [
+const stories = [
   {
     component: Theme.Provider,
-    namespace: 'input',
+    namespace: 'Input',
     name: 'default',
     props: {
-      children: (
+      children: () => (
         <Form p={2}>
           <Field>
             <Label>label with success</Label>
@@ -26,6 +27,8 @@ export default [
             <Input isEmpty placeholder="some placeholder" />
             <Help>Some help message</Help>
             <CheckboxWithLabel isLarge checked onChange={() => { }}>checkbox with label</CheckboxWithLabel>
+          </Field>
+          <Field>
             <RadioWithLabel onChange={() => { }}>radio with label</RadioWithLabel>
           </Field>
           <Field>
@@ -40,3 +43,5 @@ export default [
     }
   }
 ]
+
+stories.map(makeStory(module))
