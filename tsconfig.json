@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react",
+    "declaration": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "typedocOptions": {
+    "mode": "modules",
+    "composite": true,
+    "ignoreCompilerErrors": true,
+    "includeDeclarations": true,
+    "excludeExternals": true,
+    "exclude": "src/*.sass",
+    "excludePrivate": true,
+    "excludeNotExported": true,
+    "target": "ES6",
+    "moduleResolution": "node",
+    "disableOutputCheck": true,
+    "preserveConstEnums": true,
+    "stripInternal": true,
+    "suppressExcessPropertyErrors": true,
+    "suppressImplicitAnyIndexErrors": true
+  }
+}

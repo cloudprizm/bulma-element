@@ -1,4 +1,4 @@
-import { combineCSSDefinitions } from './modifiers'
+import { combineCSSDefinitions } from '../src/modifiers'
 
 test('lookup with modifiers', () => {
   const lookup = combineCSSDefinitions(

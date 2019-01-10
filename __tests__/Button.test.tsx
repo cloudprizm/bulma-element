@@ -1,8 +1,8 @@
 import * as React from 'react'
 import renderer from 'react-test-renderer'
-import { Button, SubmitButton } from './Button'
+import { Button, SubmitButton } from '../src/Button'
 
-jest.mock('./modifiers', () => ({
+jest.mock('../src/modifiers', () => ({
   combineCSSDefinitions: () => ({}),
   combineCSSWithModifiers: () => ({
     isActive: 'isActive-css',

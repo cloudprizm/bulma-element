@@ -4,11 +4,11 @@
   "private": false,
   "version": "0.0.1",
   "type": "component",
-  "main": "src/index.ts",
-  "homepage": "https://github.com/hungry-consulting/bulma-element",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/hungry-consulting/hungry-consulting/bulma-element",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hungry-consulting/bulma-element"
+    "url": "https://github.com/hungry-consulting/hungry-consulting/bulma-element"
   },
   "browserslist": [
     "last 2 versions",
@@ -21,9 +21,7 @@
     "styled-system"
   ],
   "description": "Bulma elements in typescript",
-  "author": {
-    "name": "Damian Baar"
-  },
+  "author": "Damian Baar",
   "node": {
     "engine": ">= 8.9"
   },
@@ -37,16 +35,25 @@
     ]
   },
   "scripts": {
-    "test": "spell run test",
+    "test": "jest",
     "test:watch": "spell run test --watch",
     "test:types": "dtslint component-types-tests",
     "lint:css": "stylelint src/*.tsx",
+    "copy:sass": "cp src/*.sass dist",
     "storybook": "start-storybook -p 6006",
-    "github:gh-pages": "build-storybook --output-dir docs"
+    "storybook-static": "build-storybook --output-dir docs",
+    "gh-pages": "concurrently 'yarn storybook-static' 'yarn docs'",
+    "build:code": "babel src -d dist --extensions '.ts','.tsx'",
+    "prepublish": "yarn test && yarn build",
+    "build:declarations": "tsc --build tsconfig.json",
+    "build": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations' 'yarn build:code' && yarn copy:sass",
+    "watch": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations --watch' 'yarn build:code --watch'",
+    "docs": "typedoc --out docs/api ./src/**",
+    "archetype:update": "spell new library-os"
   },
   "dependencies": {
-    "@hungry/bulma-theme": "~0.0.1",
     "@hungry/bulma-styled-theme": "~0.0.1",
+    "@hungry/bulma-theme": "~0.0.1",
     "@hungry/sassy-react-component": "~0.0.1"
   },
   "peerDependencies": {
@@ -54,32 +61,69 @@
     "react-dom": "^16.3.0"
   },
   "devDependencies": {
-    "@hungry/webpack-sass-theme-loader": "~0.0.1",
+    "@hungry/babel-preset-cli": "^0.1.1",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
     "@hungry/webpack-parts": "^0.1.1",
+    "@hungry/webpack-sass-theme-loader": "~0.0.1",
+    "@storybook/addon-actions": "^4.1.4",
+    "@storybook/addon-info": "^4.1.4",
+    "@storybook/addon-knobs": "^4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/addons": "^4.1.4",
     "@storybook/cli": "^4.1.4",
     "@storybook/react": "^4.1.4",
-    "@storybook/addon-knobs": "^4.1.4",
-    "@storybook/addon-info": "^4.1.4",
-    "@types/storybook__react": "^4.0.0",
-    "@types/storybook__addon-info": "^3.4.2",
-    "@types/storybook__addon-links": "^3.3.3",
-    "@types/storybook__addon-knobs": "^4.0.0",
-    "@types/storybook__addon-actions": "^3.4.1",
+    "@types/jest": "^23.3.12",
     "@types/react": "^16.6.3",
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
+    "@types/storybook__addon-actions": "^3.4.1",
+    "@types/storybook__addon-info": "^3.4.2",
+    "@types/storybook__addon-knobs": "^4.0.0",
+    "@types/storybook__addon-links": "^3.3.3",
+    "@types/storybook__react": "^4.0.0",
     "@types/styled-components": "^4.1.1",
     "@types/styled-system": "^3.0.9",
-    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
+    "concurrently": "^4.1.0",
     "dtslint": "^0.4.2",
-    "stylelint-processor-styled-components": "^1.5.1",
+    "jest": "^23.6.0",
     "prop-types": "^15.6.2",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-test-renderer": "^16.4.2",
     "react-testing-library": "^5.2.3",
-    "@storybook/addon-actions": "^4.1.4",
-    "@storybook/addon-links": "^4.1.4",
-    "@storybook/addons": "^4.1.4",
-    "@babel/core": "^7.2.2",
-    "babel-loader": "^8.0.5"
+    "stylelint-processor-styled-components": "^1.5.1",
+    "typedoc": "^0.14.0",
+    "typescript": "^3.2.2"
+  },
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "@hungry/cli"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "typings": "dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/hungry-consulting/hungry-consulting/bulma-element/issues",
+    "email": "damian.baar@gmail.com"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "babel-jest"
+    },
+    "testRegex": "/__tests__/.*\\.test\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
