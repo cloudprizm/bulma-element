@@ -42,7 +42,7 @@
     "test:types": "dtslint component-types-tests",
     "lint:css": "stylelint src/*.tsx",
     "storybook": "start-storybook -p 6006",
-    "github:gh-pages": "build-storybook --output-dir docs && cp dist/** docs/"
+    "github:gh-pages": "build-storybook --output-dir docs"
   },
   "dependencies": {
     "@hungry/bulma-theme": "~0.0.1",
@@ -58,7 +58,6 @@
     "@hungry/webpack-parts": "^0.1.1",
     "@storybook/cli": "^4.1.4",
     "@storybook/react": "^4.1.4",
-    "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/addon-knobs": "^4.1.4",
     "@storybook/addon-info": "^4.1.4",
     "@types/storybook__react": "^4.0.0",
