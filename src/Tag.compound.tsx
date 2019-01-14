@@ -1,4 +1,4 @@
-import React, { Props, MouseEventHandler, TouchEventHandler } from 'react'
+import React, { MouseEventHandler, TouchEventHandler } from 'react'
 import { AnyStyledComponent } from 'styled-components'
 import { Tag, Tags, TagVariants } from './Tag'
 

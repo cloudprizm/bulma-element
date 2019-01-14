@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "emitDeclarationOnly": true
+  },
+  "exclude": [
+    "node_modules",
+    "./src/**/*.sass.d.ts"
+  ],
+}

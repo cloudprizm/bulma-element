@@ -37,19 +37,19 @@
   "scripts": {
     "test": "jest",
     "test:watch": "spell run test --watch",
-    "test:types": "dtslint component-types-tests",
+    "test:types": "dtslint types-tests --onlyTestTsNext",
     "lint:css": "stylelint src/*.tsx",
-    "copy:sass": "cp src/*.sass dist",
     "storybook": "start-storybook -p 6006",
     "storybook-static": "build-storybook --output-dir docs",
     "gh-pages": "concurrently 'yarn storybook-static' 'yarn docs'",
     "build:code": "babel src -d dist --extensions '.ts','.tsx'",
     "prepublish": "yarn test && yarn build",
-    "build:declarations": "tsc --build tsconfig.json",
-    "build": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations' 'yarn build:code' && yarn copy:sass",
+    "build:declarations": "tsc --build tsconfig.declarations.json",
+    "build": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations' 'yarn build:code' 'yarn copy:sass'",
     "watch": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations --watch' 'yarn build:code --watch'",
-    "docs": "typedoc --out docs/api ./src/**",
-    "archetype:update": "spell new library-os"
+    "docs": "typedoc --out docs ./src/**",
+    "archetype:update": "spell new library-os --scope web --access opensource --skip-install",
+    "copy:sass": "mkdir dist && cp src/*.sass dist"
   },
   "dependencies": {
     "@hungry/bulma-styled-theme": "~0.0.1",
@@ -61,9 +61,9 @@
     "react-dom": "^16.3.0"
   },
   "devDependencies": {
-    "@hungry/babel-preset-cli": "^0.1.1",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
+    "@hungry/babel-preset-cli": "^0.1.1",
     "@hungry/webpack-parts": "^0.1.1",
     "@hungry/webpack-sass-theme-loader": "~0.0.1",
     "@storybook/addon-actions": "^4.1.4",
@@ -124,6 +124,10 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(scss|css|svg|png|sass)$": "identity-obj-proxy",
+      "^.+\\.(d.ts)$": "identity-obj-proxy"
+    }
   }
 }

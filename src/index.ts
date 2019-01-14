@@ -16,7 +16,4 @@ export * from './modifiers'
 export * from './Tag.compound'
 export * from './Form.compound'
 
-export * from './zIndex'
-
-// TODO export variant props from each file to make it extensible as it is in compound
-// export * from './Layer'
+export * from './Layer'

@@ -14,7 +14,7 @@ export const makeStory = (module: NodeModule) => ({
   component: React.ComponentType<unknown>,
   namespace: string,
   name: string,
-  props: { children: () => React.ReactChildren | React.ReactElement<unknown> }
+  props: { children: () => JSX.Element }
 }) =>
   storiesOf(namespace, module)
     .addDecorator(withKnobs)
