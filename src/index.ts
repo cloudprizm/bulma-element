@@ -11,9 +11,9 @@ export * from './Notification'
 export * from './Icon'
 export * from './Tag'
 export * from './Form'
+export * from './Layer'
+
 export * from './modifiers'
 
 export * from './Tag.compound'
 export * from './Form.compound'
-
-export * from './Layer'
