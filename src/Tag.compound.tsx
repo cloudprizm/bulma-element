@@ -1,8 +1,7 @@
 import React, { MouseEventHandler, TouchEventHandler } from 'react'
-import { AnyStyledComponent } from 'styled-components'
 import { Tag, Tags, TagVariants } from './Tag'
 
-interface WithInteraction<K = AnyStyledComponent> {
+interface WithInteraction<K = any> {
   onTouchEnd: TouchEventHandler<K>
   onClick: MouseEventHandler<K>
   onMouseDown: MouseEventHandler<K>
@@ -16,7 +15,7 @@ export const DeletableTag =
         as="a"
         isDelete
         onClick={onClick}
-        onMouseDown={onMouseDown}
         onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
       />
     </Tags>

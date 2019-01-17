@@ -17,6 +17,7 @@ import {
   BottomProps,
   PositionProps
 } from 'styled-system'
+import { AnyStyledComponent } from 'styled-components'
 
 type LayerProps =
   & BackgroundProps
@@ -40,16 +41,24 @@ const layerStyleHandlers = compose(
   background
 )
 
+const withDisplayName = (cmp: AnyStyledComponent, name: string) => {
+  cmp.displayName = name
+  return cmp
+}
+
 export const Layer =
   Object
     .keys(zLayers)
     .reduce((layers, layerName) => ({
       ...layers,
       [layerName]:
-        styled(Primitives.div)
-          .attrs({
-            zIndex: zLayers[layerName] as number,
-            position: 'absolute'
-          })`${layerStyleHandlers}`
+        withDisplayName(
+          styled(Primitives.div)
+            .attrs({
+              zIndex: zLayers[layerName] as number,
+              position: 'absolute'
+            })`${layerStyleHandlers}`,
+          `layer.${layerName}`
+        )
 
     }), {}) as Layers

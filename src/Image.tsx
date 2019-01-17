@@ -1,5 +1,6 @@
 import React from 'react'
 import { styledWithVariants, toStyledGenericFromStringOrJSX } from '@hungry/sassy-react-component'
+import { BulmaTheme } from '@hungry/bulma-theme'
 
 import { combineCSSWithModifiers, WithModifiers } from './modifiers'
 
@@ -10,7 +11,7 @@ const withBulma =
     combineCSSWithModifiers(CSS))
 
 const FigureWithImage =
-  toStyledGenericFromStringOrJSX<{ src: string, alt: string }>(
+  toStyledGenericFromStringOrJSX<BulmaTheme, { src: string, alt: string }>(
     ({ src, alt, ...props }) =>
       <figure {...props}>
         <img

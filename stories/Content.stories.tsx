@@ -9,7 +9,7 @@ const storyDescriptors = [
     namespace: 'Content',
     name: 'displaying content',
     props: {
-      children: () => (<>
+      children: () => (
         <Content>
           <h1>Hello World</h1>
           <p>Lorem ipsum<sup><a>[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
@@ -47,7 +47,6 @@ const storyDescriptors = [
           <h4>Fourth level</h4>
           <p>Nulla efficitur eleifend nisi, sit amet bibendum sapien fringilla ac. Mauris euismod metus a tellus laoreet, at elementum ex efficitur.</p>
         </Content>
-      </>
       )
     }
   },

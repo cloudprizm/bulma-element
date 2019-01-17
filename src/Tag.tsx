@@ -1,5 +1,5 @@
 import { Omit } from 'utility-types'
-import { styledWithVariants, span } from '@hungry/sassy-react-component'
+import { withVariants, Primitives } from '@hungry/sassy-react-component'
 
 import { combineCSSWithModifiers, WithModifiers } from './modifiers'
 import CSS, { BEM, Block } from './Tag.sass'
@@ -7,15 +7,15 @@ import CSS, { BEM, Block } from './Tag.sass'
 type Variants = WithModifiers<BEM>
 
 const asBulmaVariant =
-  styledWithVariants<Variants>(
+  withVariants<Variants>(
     combineCSSWithModifiers(CSS))
 
 export const Tag =
   asBulmaVariant('tag')
-    (span)
+    (Primitives.span)
 
 export const Tags =
   asBulmaVariant('tags')
-    (span)
+    (Primitives.span)
 
 export type TagVariants = Omit<Variants, Block>

@@ -1,11 +1,12 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "lib": [
       "es6",
       "esnext",
       "dom"
     ],
+    "jsx": "react",
+    "keyofStringsOnly": true,
     "noImplicitAny": false,
     "noImplicitThis": true,
     "strictNullChecks": true,

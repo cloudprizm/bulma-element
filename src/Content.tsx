@@ -8,4 +8,3 @@ const asBulmaVariant =
     combineCSSWithModifiers(StaticCSS))
 
 export const Content = asBulmaVariant('content')(div)
-Content.displayName = 'Content'

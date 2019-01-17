@@ -62,8 +62,8 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="-hungry-bulma-element"><code>@hungry/bulma-element</code></h1>
 				<p><a href="https://bulma.io/documentation/elements/">Bulma elements</a> in typescript with <a href="https://github.com/styled-components/styled-components"><code>styled-components</code></a> and <a href="https://github.com/jxnblk/styled-system"><code>styled-system</code></a> features.</p>
-				<p><a href="https://hungry-consulting.github.io/bulma-element/index.html">Storybook</a></p>
-				<p><a href="https://hungry-consulting.github.io/bulma-element/api/index.html">Docs</a></p>
+				<p><a href="https://hungry-consulting.github.io/bulma-element/index.html">Storybook</a>
+				<a href="https://hungry-consulting.github.io/bulma-element/api/index.html">Docs</a></p>
 				<h3 id="why">Why</h3>
 				<ul>
 					<li>missing bridge between existing sass frameworks and js in css - creating any other special components based upon already defined rules</li>
@@ -71,21 +71,37 @@
 					<li>there are some implementation of <code>bulma</code> for typescript, however typings for the time being seems to have very low resolution and most of them do not assume that every selector could be changed by bulma modifiers </li>
 					<li>provide thin layer of abstraction for css with preserving nature of CSS - all modifiers can be applied to any component - it is explicitly defined no auto magic assumption</li>
 				</ul>
-				<h3 id="demo">Demo</h3>
-				<p><code>yarn start:showcase</code></p>
-				<h3 id="examples">Examples</h3>
-				<ul>
-					<li>check <code>*.fixture.ts</code> files</li>
-				</ul>
-				<h3 id="how-to-enable-them-in-you-project">How to enable them in you project</h3>
-				<p>It is required to have defined some <code>loaders</code> for <code>webpack</code>, the minimal setup assume these:</p>
+				<h3 id="how-to-enable-hungry-bulma-element-in-you-project">How to enable <code>@hungry/bulma-element</code> in you project</h3>
+				<p><code>bulma-element</code> require <code>webpack</code> and some <code>loaders</code>. All of them are predefined and there is no special requirements, however minimal setup assumes, loaders below</p>
 				<pre><code class="language-ts">  <span class="hljs-keyword">import</span> {
-    styleLoader, <span class="hljs-comment">// style-loaders</span>
-    cssLoader,  <span class="hljs-comment">// css-loader with some predefined css-modules setup</span>
-    sassLoader, <span class="hljs-comment">// predefined sass-loader with include-paths and implementation defined</span>
-    } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hungry/webpack-parts'</span></code></pre>
-				<p>You can pass them to your <code>sass</code> rules as is.
-				If you encounter any issues, you can check <code>webpack.showcase.ts</code> file to get full view how to run it - feel free to reuse this config as well.</p>
+    styleLoader,            <span class="hljs-comment">// style-loaders</span>
+    cssLoader,              <span class="hljs-comment">// css-loader with some predefined css-modules setup</span>
+    sassLoader,             <span class="hljs-comment">// predefined sass-loader with include-paths and implementation defined</span>
+    sassDevelopmentLoaders, <span class="hljs-comment">// bundle of these 3 above</span>
+    } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hungry/webpack-parts'</span>
+
+  <span class="hljs-keyword">const</span> sassRule = {
+    test: <span class="hljs-regexp">/\.sass$/</span>,
+    use: sassDevelopmentLoaders()
+  }</code></pre>
+				<h4 id="using-predefined-typescript-setup">Using predefined <code>typescript</code> setup</h4>
+				<p>You can leverage minimal typescript setup from <code>@hugnry/webpack-parts</code>, like so</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Configuration, minimalTypescriptWithSass } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hungry/webpack-parts'</span>
+<span class="hljs-keyword">import</span> { theme } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hungry/bulma-theme'</span>
+<span class="hljs-comment">// this part is only required if you are going to provide bulma-theme overriding</span>
+<span class="hljs-keyword">import</span> { injectSassVarLoader } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hungry/webpack-sass-theme-loader'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> applyTSConfig =
+  <span class="hljs-function">(<span class="hljs-params">cfg: Configuration</span>) =&gt;</span>
+    minimalTypescriptWithSass(cfg)
+      .map(injectSassVarLoader(theme))
+      .run({
+        env: <span class="hljs-string">'development'</span>,
+        target: <span class="hljs-string">'web'</span>,
+      })
+
+<span class="hljs-keyword">const</span> config = applyTSConfig({<span class="hljs-comment">/* your webpack config */</span>})</code></pre>
+				<p>If you encounter any issues, you can check <code>webpack.showcase.ts</code> to get full view how it works with <code>storybook</code>.</p>
 				<h3 id="example-component">Example component</h3>
 				<h4 id="api">API</h4>
 				<h5 id="primitives">Primitives</h5>
@@ -110,10 +126,10 @@
 &lt;<span class="hljs-regexp">/Notification.Block&gt;</span></code></pre>
 				<h3 id="how-it-differentiate-comparing-to-others">How it differentiate comparing to others</h3>
 				<ul>
-					<li>there is no manual step besides the type definition and everything is auto generated based upon sass files - so any <code>bulma</code> updates can be done fully automatically</li>
+					<li>this is 1:1 <code>bulma</code> conversion, so all modifiers are available here as well. There is no manual step in it (beside the definition of component :)) so all is autogenerated based on sass files.</li>
 				</ul>
 				<h3 id="where-is-the-rest-of-bulma-components">Where is the rest of bulma components</h3>
-				<p>This package is final, this is, all bulma elements were exported, bulma components would be provided as separate package.</p>
+				<p>This package is final, this is, all bulma elements were exported from `bulma, bulma components would be provided as separate package.</p>
 				<h3 id="contribution">Contribution</h3>
 				<p>TODO</p>
 			</div>
@@ -219,9 +235,6 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_modifiers_sass_d_.html">"modifiers.sass.d"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_zindex_.html">"z<wbr>Index"</a>
 					</li>
 				</ul>
 			</nav>

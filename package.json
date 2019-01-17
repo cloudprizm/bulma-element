@@ -47,9 +47,9 @@
     "build:declarations": "tsc --build tsconfig.declarations.json",
     "build": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations' 'yarn build:code' 'yarn copy:sass'",
     "watch": "concurrently --names '@hungry/bulma-element' 'yarn build:declarations --watch' 'yarn build:code --watch'",
-    "docs": "typedoc --out docs ./src/**",
+    "docs": "typedoc --out docs/api ./src/**",
     "archetype:update": "spell new library-os --scope web --access opensource --skip-install",
-    "copy:sass": "mkdir dist && cp src/*.sass dist"
+    "copy:sass": "mkdir -p dist && cp src/*.sass dist"
   },
   "dependencies": {
     "@hungry/bulma-styled-theme": "~0.0.1",
@@ -60,6 +60,7 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "styled-components": "^4.1.3",
+    "utility-types": "^3.2.1",
     "styled-system": "^3.2.1",
     "fp-ts": "^1.12.3"
   },

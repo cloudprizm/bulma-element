@@ -1,5 +1,5 @@
 import React, { Props, ComponentType, MouseEventHandler } from 'react'
-import { ComponentWithVariants, Primitives } from '@hungry/sassy-react-component'
+import { AnyComponentWithVariant, Primitives } from '@hungry/sassy-react-component'
 
 import { Checkbox, Radio, File, Control, Input, formBulmaVariants, FormVariants } from './Form'
 
@@ -40,11 +40,11 @@ type InputProps = {
 } & WithChildren
 
 type WithLabel = {
-  render?: (component: ComponentWithVariants, props: InputProps) => ComponentType
+  render?: (component: AnyComponentWithVariant, props: InputProps) => ComponentType
 } & InputProps & FormVariants
 
 const makeLabeledComponentWithRender =
-  ([WrappedInput, Label]: [ComponentWithVariants, ComponentWithVariants]) =>
+  ([WrappedInput, Label]: [AnyComponentWithVariant, AnyComponentWithVariant]) =>
     ({ children, render, name, onChange, value, checked, ...rest }: Partial<WithLabel>) =>
       <Label {...rest}>{
         render
