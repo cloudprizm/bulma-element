@@ -2,7 +2,7 @@
   "name": "@hungry/bulma-element",
   "sideEffects": false,
   "private": false,
-  "version": "0.1.0",
+  "version": "0.0.1",
   "type": "component",
   "main": "dist/index.js",
   "homepage": "https://github.com/hungry-consulting/hungry-consulting/bulma-element",
