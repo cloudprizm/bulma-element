@@ -11,7 +11,7 @@ export const makeStory = (module: NodeModule) => ({
   name,
   props: { children }
 }: {
-  component: React.ComponentType<unknown>,
+  component: React.FunctionComponent<any>,
   namespace: string,
   name: string,
   props: { children: () => JSX.Element }

@@ -1,4 +1,4 @@
-import { styledWithVariants, toStyledGenericFromStringOrJSX } from '@hungry/sassy-react-component'
+import { styledWithVariants, h1, h2 } from '@hungry/sassy-react-component'
 
 import { combineCSSWithModifiers, WithModifiers } from './modifiers'
 import StaticCSS, { BEM } from './Title.sass'
@@ -9,8 +9,8 @@ const asBulmaVariant =
 
 export const Title =
   asBulmaVariant('title')
-    (toStyledGenericFromStringOrJSX('h1'))
+    (h1)
 
 export const Subtitle =
   asBulmaVariant('subtitle')
-    (toStyledGenericFromStringOrJSX('h2'))
+    (h2)

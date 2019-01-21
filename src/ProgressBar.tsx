@@ -7,6 +7,7 @@ const asBulmaVariant =
   styledWithVariants<WithModifiers<BEM>>(
     combineCSSWithModifiers(CSS))
 
+const progress = toStyledGenericFromStringOrJSX('progress')
 export const ProgressBar =
   asBulmaVariant('progress')
-    (toStyledGenericFromStringOrJSX('progress'))
+    (progress)
