@@ -1,0 +1,1 @@
+const jestStyledComponents = require('jest-styled-components')

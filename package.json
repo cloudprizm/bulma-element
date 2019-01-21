@@ -99,6 +99,7 @@
     "react-testing-library": "^5.2.3",
     "stylelint-processor-styled-components": "^1.5.1",
     "typedoc": "^0.14.0",
+    "jest-styled-components": "^6.3.1",
     "typescript": "^3.2.2"
   },
   "license": "MIT",
@@ -120,6 +121,7 @@
       "^.+\\.tsx?$": "babel-jest"
     },
     "testRegex": "/__tests__/.*\\.test\\.tsx?$",
+    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/jest.js",
     "moduleFileExtensions": [
       "ts",
       "tsx",
