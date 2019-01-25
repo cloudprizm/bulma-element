@@ -7,10 +7,10 @@
 [Docs](https://hungry-consulting.github.io/bulma-element/api/index.html)
 
 ### Why
-* missing bridge between existing sass frameworks and js in css - creating any other special components based upon already defined rules
-* `Bulma` provides great baseline for any component, but sometimes there is a need to override it within specific context, so this is why `style-components` and `styled-system` is used - avoid any css but give an ability to alter some experience
+* `Bulma` provides great baseline for any component, but sometimes there is a need to override it within specific context, this is why `css-modules`, `style-components` and `styled-system` are enabled from default for all components
 * there are some implementation of `bulma` for typescript, however typings for the time being seems to have very low resolution and most of them do not assume that every selector could be changed by bulma modifiers 
-* provide thin layer of abstraction for css with preserving nature of CSS - all modifiers can be applied to any component - it is explicitly defined no auto magic assumption
+* provide thin layer of abstraction for css whilst preserving nature of CSS - all modifiers can be applied to any component - it is explicitly defined no auto magic assumption
+* missing bridge between existing sass frameworks and css in js - porting any component from sass world
 
 ### How to enable `@hungry/bulma-element` in you project
 `bulma-element` require `webpack` and some `loaders`. All of them are predefined and there is no special requirements, however minimal setup assumes, loaders below
