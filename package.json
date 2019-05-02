@@ -136,5 +136,6 @@
       "^.+\\.(scss|css|svg|png|sass)$": "identity-obj-proxy",
       "^.+\\.(d.ts)$": "identity-obj-proxy"
     }
-  }
+  },
+  "gitHead": "6b24ba62801e2721446a7d0e5e94cb16cd36eadd"
 }
