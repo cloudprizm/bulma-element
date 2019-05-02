@@ -2,7 +2,7 @@
   "name": "@hungry/bulma-element",
   "sideEffects": false,
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "component",
   "main": "dist/index.js",
   "homepage": "https://github.com/hungry-consulting/hungry-consulting/bulma-element",
@@ -52,9 +52,9 @@
     "copy:sass": "mkdir -p dist && cp src/*.sass dist"
   },
   "dependencies": {
-    "@hungry/bulma-styled-theme": "^0.1.0",
-    "@hungry/bulma-theme": "^0.1.0",
-    "@hungry/sassy-react-component": "^0.1.1"
+    "@hungry/bulma-styled-theme": "^0.1.1",
+    "@hungry/bulma-theme": "^0.1.1",
+    "@hungry/sassy-react-component": "^0.1.2"
   },
   "peerDependencies": {
     "fp-ts": "^1.12.3",
@@ -65,13 +65,11 @@
     "utility-types": "^3.2.1"
   },
   "devDependencies": {
-    "react-final-form": "^4.0.2",
-    "yup": "^0.26.7",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@hungry/babel-preset-cli": "^0.1.3",
-    "@hungry/webpack-parts": "^0.2.0",
-    "@hungry/webpack-sass-theme-loader": "^0.1.0",
+    "@hungry/babel-preset-cli": "^0.1.4",
+    "@hungry/webpack-parts": "^0.2.1",
+    "@hungry/webpack-sass-theme-loader": "^0.1.1",
     "@storybook/addon-actions": "^4.1.4",
     "@storybook/addon-info": "^4.1.4",
     "@storybook/addon-knobs": "^4.1.4",
@@ -98,11 +96,13 @@
     "jest-styled-components": "^6.3.1",
     "prop-types": "^15.6.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-final-form": "^4.0.2",
     "react-test-renderer": "^16.4.2",
     "react-testing-library": "^5.2.3",
     "stylelint-processor-styled-components": "^1.5.1",
     "typedoc": "^0.14.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "yup": "^0.26.7"
   },
   "license": "MIT",
   "babel": {
